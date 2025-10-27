@@ -18,7 +18,13 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 
 
-app.use(cors());
+app.use(cors({
+  origin: [
+    'https://rentease-two.vercel.app',
+    'http://localhost:8080',
+  ],
+  credentials: true,
+}));
 app.use(morgan('dev'));
 app.use(express.json());
 
